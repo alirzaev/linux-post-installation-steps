@@ -61,3 +61,26 @@ vm.dirty_ratio=10
 - https://habr.com/ru/company/selectel/blog/498526/#comment_21533708
 - https://www.suse.com/support/kb/doc/?id=000017857
 - https://lonesysadmin.net/2013/12/22/better-linux-disk-caching-performance-vm-dirty_ratio/
+
+## Отключить запрос пароля при монтировании разделов
+
+Создать файл `/etc/polkit-default-privs.local` со следующим содержимым:
+
+```
+org.freedesktop.udisks2.filesystem-mount-system auth_admin:auth_admin:yes
+```
+
+На некоторых системах расположение файла может быть другим, например `/etc/polkit-default-privs/local`
+
+Выполнить в терминале команду:
+
+```sh
+sudo set_polkit_default_privs
+```
+
+Источники:
+
+- https://forums.opensuse.org/showthread.php/494354-Authentication-is-required-to-mount-the-device
+- https://en.opensuse.org/openSUSE:Security_Documentation#Configuration_of_Polkit_Settings
+- https://forums.opensuse.org/showthread.php/504610-PolicyKit-gui
+- https://cialu.net/stop-asking-password-when-mounting-another-internal-hard-drive-on-linux/
