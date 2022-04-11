@@ -84,3 +84,15 @@ sudo set_polkit_default_privs
 - https://en.opensuse.org/openSUSE:Security_Documentation#Configuration_of_Polkit_Settings
 - https://forums.opensuse.org/showthread.php/504610-PolicyKit-gui
 - https://cialu.net/stop-asking-password-when-mounting-another-internal-hard-drive-on-linux/
+
+## Включить дробное масштабирование для сеанса GNOME Wayland
+
+Выполнить в терминале команду:
+
+```sh
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+```
+
+Затем перезапустить сеанс
+
+Источник: https://wiki.archlinux.org/title/HiDPI#Wayland
