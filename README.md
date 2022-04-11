@@ -119,3 +119,24 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 - https://wiki.archlinux.org/title/wayland#Per_application
 - https://wiki.archlinux.org/title/wayland#Per_user
 - https://wiki.archlinux.org/title/chromium#Native_Wayland_support
+
+## Запретить GRUB изменять порядок загрузчиков (только EFI)
+
+Установить пакет `grub-efi-amd64` вместо `grub-pc`:
+
+```sh
+sudo apt install grub-efi-amd64
+```
+
+Выполнить в терминале команду:
+
+```sh
+sudo dpkg-reconfigure grub-efi-amd64
+```
+
+Вопросы насчет командной строки Linux пропустить (нажать `Enter`), на вопрос "Обновить переменные NVRAM для автоматического запуска Debian" ("Update NVRAM variables to automatically boot into Debian?") ответить "Нет".
+
+Источники:
+
+- https://askubuntu.com/questions/1072986/how-can-i-prevent-grub-updates-from-resetting-my-efi-bootorder/1121143#1121143
+- https://askubuntu.com/questions/503417/how-to-prevent-ubuntu-from-overwriting-grub-bootloader-after-update/1121144#1121144
