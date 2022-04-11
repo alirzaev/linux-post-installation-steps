@@ -96,3 +96,26 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 Затем перезапустить сеанс
 
 Источник: https://wiki.archlinux.org/title/HiDPI#Wayland
+
+## Включить поддержку Wayland в приложениях на базе Chromium
+
+### Браузеры
+
+Установить флаг `chrome://flags/#ozone-platform-hint` в `Auto` или `Wayland`
+
+### Electron-приложения
+
+Для каждого приложения по отдельности - с помощью флагов `--enable-features=UseOzonePlatform --ozone-platform=wayland`
+
+Для всех приложений - с помощью файла `${XDG_CONFIG_HOME}/electron-flags.conf` (обычно `~/.config/electron-flags.conf`):
+
+```
+--enable-features=UseOzonePlatform
+--ozone-platform=wayland
+```
+
+Источники:
+
+- https://wiki.archlinux.org/title/wayland#Per_application
+- https://wiki.archlinux.org/title/wayland#Per_user
+- https://wiki.archlinux.org/title/chromium#Native_Wayland_support
